@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="bg-brown border-b border-gold fixed start-0 top-0 z-20 w-full border-b">
+    <nav class="bg-coal border-b border-gold fixed start-0 top-0 z-20 w-full border-b">
       <div class="mx-auto flex max-w-screen flex-wrap items-center justify-between px-5 py-4">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="@/assets/tavernsandtomes.png" class="h-7" alt="Taverns&Tomes Logo" />
