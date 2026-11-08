@@ -1,0 +1,13 @@
+FROM node:22-alpine
+WORKDIR /app
+
+# Copy only the package files first so Docker can cache the install step
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+EXPOSE 5173
+
+# --host 0.0.0.0 is essential: by default Vite only listens inside the
+# container, so your browser could never reach it
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
