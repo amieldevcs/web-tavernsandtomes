@@ -1,35 +1,40 @@
-@import './base.css';
+@import 'tailwindcss';
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+@import 'flowbite/src/themes/default';
+@plugin "flowbite-typography";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+
+@theme {
+  /* Neutrals / backgrounds */
+  --color-brown: #2e1908;
+  --color-red: #2e0809;
+  --color-cream: #f5ecd9;
+  --color-gold: #a87300;
+  --color-paper-ink: #21170d;
+  --color-coal: #0b0d0c;
+
+  /* Primary = your gold. 600 is your exact #a87300 */
+  --color-primary-50: #fff8e6;
+  --color-primary-100: #ffedbf;
+  --color-primary-200: #ffdc80;
+  --color-primary-300: #f5c242;
+  --color-primary-400: #d4a017;
+  --color-primary-500: #c08a00;
+  --color-primary-600: #a87300;
+  --color-primary-700: #8f6200;
+  --color-primary-800: #755000;
+  --color-primary-900: #5c3f00;
+  --color-primary-950: #3d2a00;
+
+  /* Fonts */
+  --font-display: "Playwrite US Trad", cursive;
+  --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
+@layer base {
   body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    background-color: var(--color-coal);
+    font-family: var(--font-sans);
   }
 }
