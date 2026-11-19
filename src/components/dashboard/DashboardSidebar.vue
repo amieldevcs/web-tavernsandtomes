@@ -70,14 +70,14 @@ const navigationSections: SidebarSection[] = [
   >
     <div class="flex h-full flex-col overflow-y-auto px-3 py-5">
       <section v-for="section in navigationSections" :key="section.title" class="mb-8">
-        <h2 class="text-dark/60 px-3 pb-3 text-xs font-semibold tracking-widest uppercase">
+        <h2 class="text-dark/45 px-3 pb-3 text-xs font-bold tracking-widest uppercase">
           {{ section.title }}
         </h2>
 
         <ul class="space-y-2 font-medium">
           <li v-for="item in section.links" :key="item.label">
             <a href="#"
-              class="text-dark/45 flex items-center rounded-lg px-3 py-2.5"
+              class="text-dark/60 flex items-center rounded-lg px-3 py-2.5"
               aria-disabled="true"
               :title="`${item.label} is coming soon`"
             >

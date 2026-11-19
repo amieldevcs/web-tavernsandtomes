@@ -6,26 +6,44 @@
 
 
 @theme {
-  /* Neutrals / backgrounds */
-  --color-brown: #2e1908;
-  --color-red: #2e0809;
+  /* Black and whites */
+  --color-gray: #E2D6C6;
   --color-cream: #f5ecd9;
-  --color-gold: #a87300;
-  --color-paper-ink: #21170d;
-  --color-coal: #0b0d0c;
+  --color-stone: #A09488;
+  --color-charcoal: #272624;
+  --color-ink: #1B1A18;
+  
 
-  /* Primary = your gold. 600 is your exact #a87300 */
-  --color-primary-50: #fff8e6;
-  --color-primary-100: #ffedbf;
-  --color-primary-200: #ffdc80;
-  --color-primary-300: #f5c242;
-  --color-primary-400: #d4a017;
-  --color-primary-500: #c08a00;
-  --color-primary-600: #a87300;
-  --color-primary-700: #8f6200;
-  --color-primary-800: #755000;
-  --color-primary-900: #5c3f00;
-  --color-primary-950: #3d2a00;
+  /* Browns */
+  --color-cedar: #6C4830;
+  --color-brown: var(--color-cedar);
+  --color-timber: #A8713B;
+  --color-almond: #6A553A;
+  --color-leather: #3E2719;
+  /* --color-brown: #2e1908; */
+
+  /* Accents */
+  --color-moss: #575B42
+  --color-forest: #212A19;
+  --color-jade: #1FA774;
+
+  --color-yellow: #FED23F;
+  --color-gold: #CA9011;
+  --color-red: #471617;
+  --color-crimson: #2D011F;
+  --color-lilac: #C79CF5;
+  --color-bluegreen: #005249;
+  --color-cerulean: #007BA7;
+
+  /* bootstrap color names*/
+  --color-light: var(--color-cream);
+  --color-dark: var(--color-ink);
+  --color-primary: var(--color-gold);
+  --color-secondary: var(--color-brown);
+  --color-success: var(--color-cerulean);
+  --color-warning: var(--color-yellow);
+  --color-danger: var(--color-red);
+  
 
   /* Fonts */
   --font-display: "Playwrite US Trad", cursive;

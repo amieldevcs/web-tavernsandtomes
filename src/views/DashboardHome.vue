@@ -1,4 +1,8 @@
 <script setyp lang="ts"></script>
-<template></template>
+<template>
+
+
+    
+</template>
 
 <style></style>
