@@ -3,7 +3,7 @@
     <nav class="bg-brown border-b border-gold fixed start-0 top-0 z-20 w-full border-b">
       <div class="mx-auto flex max-w-screen flex-wrap items-center justify-between px-5 py-4">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="@/assets/tavernsandtomes.png" class="h-7" alt="Taverns&Tomes Logo" />
+          <img src="@/assets/tavernsandtomes-gold.png" class="h-7" alt="Taverns&Tomes Logo" />
           <span class="font-display md:text-gold self-center text-xl font-semibold whitespace-nowrap">Taverns&Tomes</span>
         </a>
         <button

@@ -26,10 +26,11 @@ const navigationSections: SidebarSection[] = [
   {
     title: 'Tavern',
     links: [
+      { label: 'Adventurer\'s Hall', iconType: 'svg', icon: IconTable },
       { label: 'Campaign', iconType: 'svg', icon: IconTable },
-      { label: 'Sessions', iconType: 'svg', icon: IconFeather },
+      { label: 'Game Sessions', iconType: 'svg', icon: IconFeather },
       { label: 'Character Sheets', iconType: 'svg', icon: IconSwordAndSheild },
-      { label: 'Quests', iconType: 'svg', icon: IconQuest },
+      { label: 'Quest Log', iconType: 'svg', icon: IconQuest },
     ],
   },
   {
