@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import CampaignView from '../views/CampaignView.vue'
 import DashboardHome from '../views/DashboardHome.vue'
 
 const router = createRouter({
@@ -7,6 +8,26 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      component: DashboardHome,
+    },
+    {
+      path: '/campaign',
+      name: 'campaign',
+      component: CampaignView,
+    },
+    {
+      path: '/game-sessions',
+      name: 'game-sessions',
+      component: DashboardHome,
+    },
+    {
+      path: '/character-sheets',
+      name: 'character-sheets',
+      component: DashboardHome,
+    },
+    {
+      path: '/spells',
+      name: 'spells',
       component: DashboardHome,
     },
     {

@@ -6,6 +6,7 @@ import {
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { ref, type Component } from 'vue'
+import { RouterLink } from 'vue-router'
 import IconHelmet from '../icons/IconHelmet.vue'
 import IconBook from '../icons/IconBook.vue'
 import IconFeather from '../icons/IconFeather.vue'
@@ -14,9 +15,10 @@ import IconItems from '../icons/IconItems.vue'
 import IconTable from '../icons/IconTable.vue'
 import IconSwordAndSheild from '../icons/IconSwordAndSheild.vue'
 
-type SidebarLink =
-  | { label: string; iconType: 'fontawesome'; icon: IconDefinition }
-  | { label: string; iconType: 'svg'; icon: Component }
+type SidebarLink = {
+  label: string
+  to?: string
+} & ({ iconType: 'fontawesome'; icon: IconDefinition } | { iconType: 'svg'; icon: Component })
 
 type SidebarSection = { title: string; links: SidebarLink[] }
 
@@ -27,9 +29,14 @@ const navigationSections: SidebarSection[] = [
     title: 'Tavern',
     links: [
       { label: 'Adventurer\'s Hall', iconType: 'svg', icon: IconTable },
-      { label: 'Campaign', iconType: 'svg', icon: IconTable },
-      { label: 'Game Sessions', iconType: 'svg', icon: IconFeather },
-      { label: 'Character Sheets', iconType: 'svg', icon: IconSwordAndSheild },
+      { label: 'Campaign', to: '/campaign', iconType: 'svg', icon: IconTable },
+      { label: 'Game Sessions', to: '/game-sessions', iconType: 'svg', icon: IconFeather },
+      {
+        label: 'Character Sheets',
+        to: '/character-sheets',
+        iconType: 'svg',
+        icon: IconSwordAndSheild,
+      },
       { label: 'Quest Log', iconType: 'svg', icon: IconQuest },
     ],
   },
@@ -38,7 +45,7 @@ const navigationSections: SidebarSection[] = [
     links: [
       { label: 'Equipments', iconType: 'svg', icon: IconHelmet },
       { label: 'Items', iconType: 'svg', icon: IconItems },
-      { label: 'Spells', iconType: 'svg', icon: IconBook },
+      { label: 'Spells', to: '/spells', iconType: 'svg', icon: IconBook },
     ],
   },
 ]
@@ -65,22 +72,25 @@ const navigationSections: SidebarSection[] = [
 
   <aside
     id="dashboard-sidebar"
-    class="border-gold/30 bg-light fixed top-16 bottom-0 left-0 z-30 w-64 border-r transition-transform duration-300 md:translate-x-0"
+    class="bg-brown border-r-10 border-stone fixed top-16 bottom-0 left-0 z-30 w-64 transition-transform duration-300 md:translate-x-0"
     :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
     aria-label="Dashboard sidebar"
   >
     <div class="flex h-full flex-col overflow-y-auto px-3 py-5">
       <section v-for="section in navigationSections" :key="section.title" class="mb-8">
-        <h2 class="text-dark/45 px-3 pb-3 text-xs font-bold tracking-widest uppercase">
+        <h2 class="text-light/45 px-3 pb-3 text-xs font-bold tracking-widest uppercase">
           {{ section.title }}
         </h2>
 
         <ul class="space-y-2 font-medium">
           <li v-for="item in section.links" :key="item.label">
-            <a href="#"
-              class="text-dark/60 flex items-center rounded-lg px-3 py-2.5"
-              aria-disabled="true"
-              :title="`${item.label} is coming soon`"
+            <component
+              :is="item.to ? RouterLink : 'a'"
+              v-bind="item.to ? { to: item.to } : { href: '#' }"
+              class="text-light flex items-center rounded-lg px-3 py-2.5"
+              :aria-disabled="item.to ? undefined : 'true'"
+              :title="item.to ? undefined : `${item.label} is coming soon`"
+              @click="isOpen = false"
             >
               <FontAwesomeIcon
                 v-if="item.iconType === 'fontawesome'"
@@ -95,7 +105,7 @@ const navigationSections: SidebarSection[] = [
                 aria-hidden="true"
               />
               <span class="ms-3">{{ item.label }}</span>
-            </a>
+            </component>
           </li>
         </ul>
       </section>
